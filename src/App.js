@@ -4,18 +4,24 @@ import "bulma/css/bulma.css"
 import "./workouts.json"
 
 class App extends Component {
-  render() {
-    return (
-        <div className="columns">
-            <div className="column">
-                Hello worlds
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            weeks: ["a", "b"]
+        };
+    }
+
+    render() {
+        return (
+            <div className="columns">
+                {this.state.weeks.map(week => {
+                    return <div className="column">HELLO {week}</div>
+                })}
             </div>
-            <div className="column">
-                <a className="button is-primary">Primary</a>
-            </div>
-        </div>
-    );
-  }
+        );
+    }
+
 }
 
 export default App;
